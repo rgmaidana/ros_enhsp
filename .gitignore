@@ -1,0 +1,7 @@
+common/interesting_problems
+common/domain_*
+params
+scripts/map_obstacles_sheet.txt
+scripts/turn_*
+scripts/planner_dispatch_backup.py
+scripts/map_generator.py
