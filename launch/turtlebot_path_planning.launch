@@ -1,0 +1,78 @@
+<launch>
+    <!-- Runs in workstation 
+        * Stage
+        * rviz
+        * Map server
+    -->
+
+    <!-- Arguments -->
+    <arg name="base"       default="$(optenv TURTLEBOT_BASE kobuki)"/>  <!-- create, rhoomba -->
+    <arg name="stacks"     default="$(optenv TURTLEBOT_STACKS hexagons)"/>  <!-- circles, hexagons -->
+    <arg name="3d_sensor"  default="$(optenv TURTLEBOT_3D_SENSOR kinect)"/>  <!-- kinect, asus_xtion_pro -->
+    <arg name="world_file" default="$(find ros_enhsp)/stage/generic.world" />
+    <arg name="map_file" default="$(find ros_enhsp)/maps/generic.yaml" />
+    <arg name="headless_mode" default="-g" />
+    <arg name="initial_pose_x" default="7.0" />
+    <arg name="initial_pose_y" default="7.0" />
+    <arg name="initial_pose_a" default="0.0" />
+
+    <!-- Use simulation time -->
+    <param name="use_sim_time" value="true" />
+
+    <!-- Run stage simulation -->
+    <node pkg="stage_ros" type="stageros" name="stageros" args="$(arg headless_mode) $(arg world_file)">
+        <param name="base_watchdog_timeout" value="0.5"/>
+        <remap from="odom" to="odom"/>
+        <remap from="base_pose_ground_truth" to="base_pose_ground_truth"/>
+        <remap from="base_scan" to="scan"/>
+    </node>
+
+    <!--  Robot Model -->
+    <!-- <include file="$(find turtlebot_bringup)/launch/includes/robot.launch.xml">
+        <arg name="base" value="$(arg base)" />
+        <arg name="stacks" value="$(arg stacks)" />
+        <arg name="3d_sensor" value="$(arg 3d_sensor)" />
+    </include> -->
+
+    <!-- Command Velocity multiplexer -->
+    <!-- <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="cmd_vel_mux" args="load yocs_cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager">
+        <param name="yaml_cfg_file" value="$(find turtlebot_bringup)/param/mux.yaml"/>
+        <remap from="cmd_vel_mux/output" to="mobile_base/commands/velocity"/>
+    </node> -->
+
+    <!-- Maps -->
+    <node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(arg map_file)">
+        <param name="frame_id" value="/map"/>
+    </node>
+
+    <!-- Localization -->
+    <!-- <node name="fake_localization" pkg="fake_localization" type="fake_localization" >
+        <param name="scan_topic" value="scan"/>
+        <param name="use_map_topic" value="true"/>
+        <param name="initial_pose_x" value="$(arg initial_pose_x)"/>
+        <param name="initial_pose_y" value="$(arg initial_pose_y)"/>
+        <param name="initial_pose_a" value="$(arg initial_pose_a)"/>
+    </node> -->
+    <!-- <include file="$(find turtlebot_navigation)/launch/includes/amcl/amcl.launch.xml">
+        <arg name="scan_topic" value="scan"/>
+        <arg name="use_map_topic" value="true"/>
+        <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+        <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
+        <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+    </include> -->
+
+    <!-- Run planning environment -->
+    <!-- <node name="problem_generator" pkg="ros_enhsp" type="problem_generator.py" output="screen" >
+        <param name="/ignore_metric" value="false" />    
+    </node>
+    <node name="problem_interface" pkg="ros_enhsp" type="problem_interface.py" output="screen" />
+    <node name="planner_interface" pkg="ros_enhsp" type="planner_interface.py" output="screen" />
+    <node name="planner_dispatch" pkg="ros_enhsp" type="planner_dispatch.py" output="screen" /> -->
+
+    <!-- Run RVIZ for visualization -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ros_enhsp)/rviz/turtlebot_planning.rviz">
+        <remap from="/move_base_simple/goal" to="/ros_enhsp/goal" />
+        <remap from="/initialpose" to="/amcl_pose" />
+    </node>
+</launch>
