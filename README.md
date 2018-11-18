@@ -17,7 +17,7 @@ It has four components (three nodes and one service server), inspired by the [RO
 
 The package can be installed via [CATKIN](http://docs.ros.org/api/catkin/html/).
 The planner interface node also requires the repository's local copy of ENHSP to be installed.
-To do this, open a terminal, navigate to the [planner's folder]() and run "./install".
+To do this, open a terminal, navigate to the [planner's folder](https://github.com/rgmaidana/ros_enhsp/tree/master/common) and run "./install".
 
 
 ## Dependencies
