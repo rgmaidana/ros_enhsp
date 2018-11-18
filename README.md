@@ -32,7 +32,7 @@ If running the application described below, then the [turtlebot](https://github.
 The package is currently used for energy-efficient path planning in a simulated Turtlebot 2 robot.
 The domain present in the "common" folder reflects this planning problem, which considers high-energy zones when choosing a path to a goal.
 The energy-increasing and energy-decreasing actions are specific to a Jetson TX2 embedded computer, hard-coded in the planner dispatch node.
-More information in [this paper]().
+More information in [this paper](https://github.com/pucrs-automated-planning/term-projects-2018/blob/master/maidana/maidana-paper.pdf).
 
 
 ## Acknowledgements
