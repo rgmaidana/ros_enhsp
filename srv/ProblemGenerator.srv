@@ -1,5 +1,0 @@
-nav_msgs/OccupancyGrid map
-geometry_msgs/PoseWithCovarianceStamped pose
-geometry_msgs/PoseStamped goal
----
-string problem

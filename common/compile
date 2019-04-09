@@ -1,3 +1,0 @@
-#!/bin/bash
-
-javac -classpath "$(pwd)"/src/:"$(pwd)"/libs/* src/ENHSP.java

@@ -1,0 +1,3 @@
+#!/bin/bash 
+
+    java -classpath /home/lsa/catkin_ws/ros_enhsp/common/src/:/home/lsa/catkin_ws/ros_enhsp/common/libs/PPMaJal2.jar:/home/lsa/catkin_ws/ros_enhsp/common/libs/* ENHSP "$@"
