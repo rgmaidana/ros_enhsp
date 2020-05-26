@@ -440,15 +440,15 @@
     )
 
     ; energy actions
-    (:action performance_mode
+    (:action turn_on_sensor
      :parameters(?r -robot)
      :precondition()
-     :effect(increase (energy ?r) 1)
+     :effect(increase (e ?r) 1)
     )
 
-    (:action efficiency_mode
+    (:action turn_off_sensor
      :parameters(?r -robot)
      :precondition()
-     :effect(decrease (energy ?r) 1)
+     :effect(decrease (e ?r) 1)
     )    
 )
