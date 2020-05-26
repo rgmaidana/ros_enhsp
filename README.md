@@ -1,5 +1,5 @@
 # ros_enhsp
-ROS wrapper for the Expressive Numerical Heuristic Search Planner (ENHSP)
+ROS wrapper for the Expressive Numerical Heuristic Search Planner (ENHSP). Part of project published as "[Energy-Aware Path Planning for Autonomous Mobile Robot Navigation](http://scholar.google.no/scholar?q=Energy-Aware+Path+Planning+for+Autonomous+Mobile+Robot+Navigation&hl=en&as_sdt=0&as_vis=1&oi=scholart)".
 
 ## Description
 
@@ -47,4 +47,3 @@ More information in [this paper](https://github.com/pucrs-automated-planning/ter
 * Fix minor movement bug in planner dispatch (steering angle jumps to -360 when robot yaw is close to 180 degrees, due to atan2 discontinuity at 180 degrees).
 * Change planner interface node to load domain from ROS parameter.
 * Generalize problem generator node to allow it to work with any planning problem.
-* Create tool for automatic extraction of obstacle representation (cx, cy, rc1, rc2, re1, re2) from ROS occupancy grid.
