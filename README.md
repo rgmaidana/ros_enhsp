@@ -1,5 +1,5 @@
 # ros_enhsp
-ROS wrapper for the Expressive Numerical Heuristic Search Planner (ENHSP). Part of project published as "[Energy-Aware Path Planning for Autonomous Mobile Robot Navigation](http://scholar.google.no/scholar?q=Energy-Aware+Path+Planning+for+Autonomous+Mobile+Robot+Navigation&hl=en&as_sdt=0&as_vis=1&oi=scholart)".
+ROS wrapper for the Expressive Numerical Heuristic Search Planner (ENHSP). Part of project published as "[Energy-Aware Path Planning for Autonomous Mobile Robot Navigation](https://www.aaai.org/ocs/index.php/FLAIRS/FLAIRS20/paper/viewPaper/18463)".
 
 ## Description
 
