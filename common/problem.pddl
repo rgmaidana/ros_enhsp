@@ -3,13 +3,13 @@
 
 	(:objects
 			turtle -robot
-			 o1 -obstacle
-			 o2 -obstacle
-			 o3 -obstacle
-			 o4 -obstacle
-			 o5 -obstacle
-			 o6 -obstacle
-			 o7 -obstacle
+			o1 -obstacle
+			o2 -obstacle
+			o3 -obstacle
+			o4 -obstacle
+			o5 -obstacle
+			o6 -obstacle
+			o7 -obstacle
 	)
 
 	(:init
