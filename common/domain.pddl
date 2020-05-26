@@ -443,12 +443,12 @@
     (:action turn_on_sensor
      :parameters(?r -robot)
      :precondition()
-     :effect(increase (e ?r) 1)
+     :effect(increase (energy ?r) 1)
     )
 
     (:action turn_off_sensor
      :parameters(?r -robot)
      :precondition()
-     :effect(decrease (e ?r) 1)
+     :effect(decrease (energy ?r) 1)
     )    
 )
